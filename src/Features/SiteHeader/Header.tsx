@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import LoginButton from "../Login/LoginButton";
+// import LoginButton from "../Login/LoginButton";
 import {Grid, Typography} from "@material-ui/core";
 
 
@@ -36,14 +36,14 @@ const Header: React.FC<Props> = (props: Props) => {
                     Some Logo
                 </Typography>
             </Grid>
-            <Grid
-                item
-                xs={1}
-            >
-                <LoginButton
-                    variant={'outlined'}
-                />
-            </Grid>
+            {/*<Grid*/}
+            {/*    item*/}
+            {/*    xs={1}*/}
+            {/*>*/}
+            {/*    <LoginButton*/}
+            {/*        variant={'outlined'}*/}
+            {/*    />*/}
+            {/*</Grid>*/}
         </Grid>
     );
 };
