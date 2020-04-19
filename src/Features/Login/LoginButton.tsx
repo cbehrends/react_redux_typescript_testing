@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {Button} from "@material-ui/core";
 import {useState} from "react";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import {AppState} from "../../store/reducers";
+import {AppState} from "../../store/";
 import {login} from "./store/loginActions";
 
 type Props = {

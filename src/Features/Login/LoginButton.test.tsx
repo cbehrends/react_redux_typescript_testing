@@ -24,11 +24,10 @@ const render = (ui: any, initialStore = {}, options = {}) => {
 it('should should start login when clicked', async () => {
     const randomFactText = 'Random fact';
     (axios.get as jest.Mock).mockResolvedValue({ data: randomFactText });
-    // const { getByText, queryByText } = render(<App />);
+
     const {getByText, queryByText} = render(<LoginButton/>);
 
     fireEvent.click(getByText(/Login/));
-    // expect(getByText(/Login-CLICK/)).toBeInTheDocument();
 
 
 });

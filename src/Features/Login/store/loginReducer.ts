@@ -13,7 +13,7 @@ const initialState = {
 
 const loginReducers = (state = initialState, action: AnyAction) => {
     switch (action.type) {
-        case actionTypes.LOGIN_START:
+        case actionTypes.LOGIN:
             return {
                 ...state,
                 userName: action.userName,

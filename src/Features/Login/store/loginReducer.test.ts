@@ -11,7 +11,7 @@ it('should return the initial state', () => {
 it('should set the state', () => {
     expect(
         loginReducer(undefined, {
-            type: actionTypes.LOGIN_START,
+            type: actionTypes.LOGIN,
             userName: 'test@test.com',
         }),
     ).toEqual({
