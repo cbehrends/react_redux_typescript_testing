@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../../store/";
-import {login} from "./store/loginActions";
+import {login, logOut} from "./store/loginActions";
 
 type Props = {
     variant?: 'contained' | 'outlined' | 'text';
@@ -25,8 +25,12 @@ const LoginButton: React.FC<Props> = (props: Props) => {
 
     const dispatch = useDispatch();
 
-    const handleClick = () => {
-        dispatch(login("Clicky clicky"))
+    const handleLoginClick = () => {
+        dispatch(login("someone@someplace.com"))
+    };
+
+    const handleLogOutClick = () => {
+        dispatch(logOut())
     };
 
     if(isLoggedIn) {
@@ -35,7 +39,7 @@ const LoginButton: React.FC<Props> = (props: Props) => {
                 <Button
                     className={classes.root}
                     {...props}
-                    onClick={handleClick}
+                    onClick={handleLogOutClick}
                     data-testid={'logOutButton'}
                 >
                     Logout
@@ -48,7 +52,7 @@ const LoginButton: React.FC<Props> = (props: Props) => {
             <Button
                 className={classes.root}
                 {...props}
-                onClick={handleClick}
+                onClick={handleLoginClick}
                 data-testid={'loginButton'}
             >
                 Login

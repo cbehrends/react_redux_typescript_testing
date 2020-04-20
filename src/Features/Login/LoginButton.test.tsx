@@ -17,12 +17,16 @@ const render = (ui: any, initialStore = {}, options = {}) => {
     return rtlRender(ui, { wrapper: Providers, ...options });
 };
 
-it('should should login when clicked', async () => {
+it('should should log in and out when clicked', async () => {
 
     const {getByTestId} = render(<LoginButton/>);
 
     fireEvent.click(getByTestId('loginButton'));
     expect(getByTestId('logOutButton')).toBeInTheDocument();
 
+    fireEvent.click(getByTestId('logOutButton'));
+    expect(getByTestId('loginButton')).toBeInTheDocument();
+
 
 });
+

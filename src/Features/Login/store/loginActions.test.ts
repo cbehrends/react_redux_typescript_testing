@@ -18,4 +18,11 @@ it('should create a login action with the proper username', () => {
     expect(actions.login('test@test.com')).toEqual(expectedAction);
 });
 
+it('should create a log out action', () => {
+    const expectedAction = {
+        type: actionTypes.LOGOUT
+    };
+    expect(actions.logOut()).toEqual(expectedAction);
+});
+
 

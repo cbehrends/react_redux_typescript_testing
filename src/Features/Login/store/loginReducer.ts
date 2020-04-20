@@ -19,7 +19,12 @@ const loginReducers = (state = initialState, action: AnyAction) => {
                 userName: action.userName,
                 isLoggedIn: true
             };
-
+        case actionTypes.LOGOUT:
+            return {
+                ...state,
+                userName: '',
+                isLoggedIn: false
+            };
         default:
             return state;
     }

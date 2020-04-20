@@ -8,7 +8,7 @@ it('should return the initial state', () => {
     });
 });
 
-it('should set the state', () => {
+it('should log in', () => {
     expect(
         loginReducer(undefined, {
             type: actionTypes.LOGIN,
@@ -17,5 +17,27 @@ it('should set the state', () => {
     ).toEqual({
         userName: 'test@test.com',
         isLoggedIn: true
+    });
+});
+
+it('should log out', () => {
+
+    expect(
+        loginReducer(undefined, {
+            type: actionTypes.LOGIN,
+            userName: 'test@test.com',
+        }),
+    ).toEqual({
+        userName: 'test@test.com',
+        isLoggedIn: true
+    });
+
+    expect(
+        loginReducer(undefined, {
+            type: actionTypes.LOGOUT
+        }),
+    ).toEqual({
+        userName: '',
+        isLoggedIn: false
     });
 });
