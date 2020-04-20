@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-
 import {useSelector} from "react-redux";
-import LoginButton from "../Login/LoginButton";
-import {Button} from "@material-ui/core";
 import DataForm from "../DataForm/DataForm";
 
 interface Props {

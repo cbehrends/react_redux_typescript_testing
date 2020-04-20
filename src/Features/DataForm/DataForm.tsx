@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.background.default
         },
         saveButton: {
-            // color: theme.saveButton.color
+            color: theme.saveButton.color
         }
     })
 );
