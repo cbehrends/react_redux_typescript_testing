@@ -35,6 +35,12 @@ const Header: React.FC<Props> = (props: Props) => {
                     Some Logo
                 </Typography>
             </Grid>
+            <Grid
+                item
+                xs={3}
+            >
+               <LoginButton/>
+            </Grid>
         </Grid>
     );
 };
