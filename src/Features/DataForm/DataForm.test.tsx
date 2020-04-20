@@ -5,11 +5,12 @@ import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import '@testing-library/jest-dom/extend-expect';
 import axios from 'axios';
-import LoginButton from "./LoginButton";
-import loginReducer from "../../store/index";
+import reducers from "../../store/";
 import * as actionTypes from "./store/actionTypes";
+import DataForm from "./DataForm";
+
 const rootReducer = combineReducers<any>({
-    Login: loginReducer
+    Login: reducers
 });
 
 jest.mock('axios');
@@ -21,14 +22,11 @@ const render = (ui: any, initialStore = {}, options = {}) => {
     return rtlRender(ui, { wrapper: Providers, ...options });
 };
 
-it('should should login when clicked', async () => {
-    const randomFactText = 'Random fact';
-    (axios.get as jest.Mock).mockResolvedValue({ data: randomFactText });
 
-    const {getByTestId} = render(<LoginButton/>);
+it('should have TextField with the value', async () => {
 
-    fireEvent.click(getByTestId('loginButton'));
-    expect(getByTestId('logoutButton')).toBeInTheDocument()
-    // getByTestId('loginButton').
+    const {getByTestId} = render(<DataForm/>);
+    expect(getByTestId('valueInput')).toBeInTheDocument();
+    expect(getByTestId('valueInput')).toHaveValue('TestValue')
 
 });

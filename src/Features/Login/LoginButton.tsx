@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {Button} from "@material-ui/core";
-import {useState} from "react";
-import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../../store/";
 import {login} from "./store/loginActions";
 
@@ -22,21 +21,34 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const LoginButton: React.FC<Props> = (props: Props) => {
     const classes = useStyles();
-    const [value, setValue] = useState('');
-    const greetingLocal = useSelector((store: any) => store.userName);
+    const isLoggedIn = useSelector<boolean>((store: any) => store.isLoggedIn);
     const dispatch = useDispatch();
 
     const handleClick = () => {
         dispatch(login("Clicky clicky"))
     };
 
-
+    if(isLoggedIn) {
+        return (
+            <div>
+                <Button
+                    className={classes.root}
+                    {...props}
+                    onClick={handleClick}
+                    data-testid={'logOutButton'}
+                >
+                    Logout
+                </Button>
+            </div>
+        );
+    }
     return (
         <div>
             <Button
                 className={classes.root}
                 {...props}
                 onClick={handleClick}
+                data-testid={'loginButton'}
             >
                 Login
             </Button>
