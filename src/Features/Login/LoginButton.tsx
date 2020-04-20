@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const LoginButton: React.FC<Props> = (props: Props) => {
     const classes = useStyles();
-    const isLoggedIn = useSelector<boolean>((store: any) => store.isLoggedIn);
+    const isLoggedIn = useSelector<boolean>((store: any) => store.Login.isLoggedIn);
+
     const dispatch = useDispatch();
 
     const handleClick = () => {

@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 import loginReducer from "../Features/Login/store/loginReducer";
 
-const rootReducer = combineReducers<any>({
+export const rootReducer = combineReducers<any>({
     Login: loginReducer
 });
 

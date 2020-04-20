@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import LoginButton from "../Login/LoginButton";
+
 import {useSelector} from "react-redux";
+import LoginButton from "../Login/LoginButton";
+import {Button} from "@material-ui/core";
+import DataForm from "../DataForm/DataForm";
 
 interface Props {
 
@@ -17,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Home: React.FC<Props> = (props: Props) => {
     const classes = useStyles();
-    const userName = useSelector((store: any) => store.userName);
+    const userName = useSelector((store: any) => store.Login.userName);
 
     return (
         <div
@@ -26,7 +29,7 @@ const Home: React.FC<Props> = (props: Props) => {
             <div>
                 Home - {userName}
             </div>
-
+            <DataForm/>
         </div>
     );
 };
